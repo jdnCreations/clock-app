@@ -151,13 +151,51 @@ body {
   height: 4.8px;
 }
 
+.hideQuote {
+  display: none;
+}
+
 .expanded {
   position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   bottom: 0;
   width: 100vw;
-  height: 256px;
-  background-color: var(rgba(255, 255, 255, 0.25));
+  height: 16rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20px);
   z-index: 50;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.expanded .title {
+  align-self: flex-start;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 28px;
+}
+
+.expanded .answer {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.visible {
+  display: flex;
 }
 
 .daytime {

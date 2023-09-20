@@ -23,9 +23,9 @@
   <body>
     <div class="wrapper" id="background">
       <div class="content">
-        <div class="quote">
+        <div class="quote" id="quote">
           <div class="flex">
-            <p id="quote">
+            <p id="quoteText">
               “The science of operations, as derived from mathematics more
               especially, is a science of itself, and has its own abstract truth
               and value.”
@@ -54,7 +54,7 @@
             <p id="timezone" class="timezone">BST</p>
           </div>
           <p class="uppercase country" id="country">In London, UK</p>
-          <button class="button uppercase">
+          <button class="button uppercase" id="more">
             More
             <div class="circle">
               <svg width="14" height="9" xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +70,23 @@
         </div>
       </div>
     </div>
-    <div class="expanded"></div>
+    <div class="expanded" id="expanded">
+      <div class="info text-white uppercase">
+        <p class="title">Current Timezone</p>
+        <p class="answer" id="timezoneFull">Europe/London</p>
+      </div>
+      <div class="info text-white uppercase">
+        <p class="title">day of the year</p>
+        <p class="answer" id="dayOfYear">295</p>
+      </div>
+      <div class="info text-white uppercase">
+        <p class="title">Day of the Week</p>
+        <p class="answer" id="dayOfWeek">5</p>
+      </div>
+      <div class="info text-white uppercase">
+        <p class="title">Week Number</p>
+        <p class="answer" id="weekNumber">42</p>
+      </div>
+    </div>
   </body>
 </html>

@@ -151,6 +151,15 @@ body {
   height: 4.8px;
 }
 
+.expanded {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 256px;
+  background-color: var(rgba(255, 255, 255, 0.25));
+  z-index: 50;
+}
+
 .daytime {
   background-image: url('./assets/mobile/bg-image-daytime.jpg');
 }

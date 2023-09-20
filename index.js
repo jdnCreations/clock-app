@@ -2,7 +2,12 @@ const greeting = document.getElementById('greeting');
 const time = document.getElementById('time');
 const timezone = document.getElementById('timezone');
 const country = document.getElementById('country');
+const quote = document.getElementById('quote');
+const author = document.getElementById('author');
+const refreshButton = document.getElementById('refresh');
 const background = document.getElementById('background');
+
+refreshButton.addEventListener('click', getRandomQuote);
 
 // Make an API request to worldtimeapi.org
 fetch('http://worldtimeapi.org/api/ip')
@@ -29,6 +34,8 @@ fetch('http://worldtimeapi.org/api/ip')
     timezone.innerText = data.abbreviation;
 
     getLocationInfo(data.client_ip);
+
+    getRandomQuote();
   })
   .catch((error) => {
     console.error('Error fetching time:', error);
@@ -39,5 +46,14 @@ function getLocationInfo(ip) {
     .then((response) => response.json())
     .then((data) => {
       country.innerText = `in ${data.city}, ${data.country} `;
+    });
+}
+
+function getRandomQuote() {
+  fetch('https://api.quotable.io/quotes/random')
+    .then((response) => response.json())
+    .then((data) => {
+      quote.innerText = data[0].content;
+      author.innerText = data[0].author;
     });
 }

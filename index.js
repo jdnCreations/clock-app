@@ -45,7 +45,7 @@ moreButton.addEventListener('click', () => {
 });
 
 // Make an API request to worldtimeapi.org
-fetch('http://worldtimeapi.org/api/ip')
+fetch('https://worldtimeapi.org/api/ip')
   .then((response) => response.json())
   .then((data) => {
     // Handle the response data

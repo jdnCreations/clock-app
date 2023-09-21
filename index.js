@@ -9,6 +9,10 @@ const expandedDiv = document.getElementById('expanded');
 const refreshButton = document.getElementById('refresh');
 const moreButton = document.getElementById('more');
 const background = document.getElementById('background');
+const icon = document.getElementById('icon');
+const buttonText = document.getElementById('buttonText');
+const circle = document.getElementById('circle');
+const topDiv = document.getElementById('top');
 
 const dayOfWeek = document.getElementById('dayOfWeek');
 const dayOfYear = document.getElementById('dayOfYear');
@@ -25,12 +29,18 @@ moreButton.addEventListener('click', () => {
     expanded = false;
     expandedDiv.classList.remove('visible');
     quoteDiv.classList.remove('hideQuote');
+    buttonText.innerText = 'More';
+    circle.classList.remove('flip');
+    topDiv.classList.remove('bigpadding');
   } else {
     // open
     expanded = true;
     expandedDiv.classList.add('visible');
     // hide quote
     quoteDiv.classList.add('hideQuote');
+    buttonText.innerText = 'less';
+    circle.classList.add('flip');
+    topDiv.classList.add('bigpadding');
   }
 });
 
@@ -54,8 +64,21 @@ fetch('http://worldtimeapi.org/api/ip')
     if (hours >= 12) {
       // change background to night
       background.classList.add('nighttime');
+      // change greeting
+      if (window.innerWidth >= 768) {
+        greeting.innerText = "Good evening, it's currently";
+      } else {
+        greeting.innerText = 'Good Evening';
+      }
+      icon.src = './assets/desktop/icon-moon.svg';
     } else {
       background.classList.add('daytime');
+      if (window.innerWidth >= 768) {
+        greeting.innerText = "Good Morning, it's currently";
+      } else {
+        greeting.innerText = 'Good Morning';
+      }
+      icon.src = './assets/desktop/icon-sun.svg';
     }
 
     time.innerText = `${hours}:${formattedMinutes}`;
